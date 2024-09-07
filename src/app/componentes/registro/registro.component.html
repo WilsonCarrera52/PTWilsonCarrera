@@ -8,16 +8,16 @@
             <div class="card-body">
                 <form (submit)="registrar()">
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="datos.nombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                        <input type="text" [(ngModel)]="datos.nombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus data-toggle="tooltip" title="Nombre" data-placement="right">
                     </div>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="datos.email" name="correo" class="form-control" placeholder="Correo" required>
+                        <input type="text" [(ngModel)]="datos.email" name="correo" class="form-control" placeholder="Correo" required data-toggle="tooltip" title="Correo" data-placement="right">
                     </div>
                     <div class="form-group">
-                        <input type="password" [(ngModel)]="datos.password" name="contrasena" class="form-control" placeholder="Contraseña" required>
+                        <input type="password" [(ngModel)]="datos.password" name="contrasena" class="form-control" placeholder="Contraseña" required maxlength="15" data-toggle="tooltip" title="Máximo 15 caracteres" data-placement="right">
                     </div>
                     <div class="form-group">
-                        <input type="password" [(ngModel)]="datos.password_confirmation" name="confContrasena" class="form-control" placeholder="Confirmar Contraseña" required>
+                        <input type="password" [(ngModel)]="datos.password_confirmation" name="confContrasena" class="form-control" placeholder="Confirmar Contraseña" required maxlength="15" data-toggle="tooltip" title="Máximo 15 caracteres" data-placement="right">
                     </div>
                     <div class="col-6 mx-auto">
                         <button type="submit" class="btn btn-primary">Registrarse</button>

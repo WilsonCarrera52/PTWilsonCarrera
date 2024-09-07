@@ -15,6 +15,13 @@ export class LoginComponent {
     password: ''
   }
 
+  ngOnInit(): void {
+    if (this.autenticacion.sesionIniciada()) {
+      this.alertas.dialog('I', 'Ya hay una sesión iniciada')
+      this.router.navigate(['/perfil']);
+    } 
+  }
+
   constructor(private alertas: NgAlertBoxComponent,
     private autenticacion: AutenticacionService,
     private router: Router) { }
@@ -29,7 +36,11 @@ export class LoginComponent {
         this.alertas.dialog('I', 'Bienvenido/a');
         this.router.navigate(['/perfil']);
       },
-      err => console.log(err)
+      err => {this.alertas.dialog('I', 'No se pudo iniciar sesión'); console.log(err)}
     );
+  }
+
+  registrarse(){
+    this.router.navigate(['/registro']);
   }
 }

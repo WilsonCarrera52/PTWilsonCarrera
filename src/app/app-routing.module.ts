@@ -8,7 +8,7 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'registro',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

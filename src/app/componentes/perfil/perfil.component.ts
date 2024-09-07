@@ -69,8 +69,23 @@ export class PerfilComponent implements OnInit {
       (res: any) => {
         console.log(res);
         const texto = document.getElementById('mostrar_ruta') as HTMLInputElement;
-        texto.value = res.url;
-        this.alertas.dialog('I', `Ruta: ${res.url}`)
+        texto.value = res.url.replace('?disposition=attachment', '');
+
+        const elementos = document.getElementById('elementos');
+
+        if (document.getElementById('pdf')) {
+          const emb = document.getElementById('pdf');
+          emb?.setAttribute('src', `https://drive.google.com/viewerng/viewer?embedded=true&url=${texto.value}`);
+        } else {
+          const emb = document.createElement('embed');
+          emb?.setAttribute('src', `https://drive.google.com/viewerng/viewer?embedded=true&url=${texto.value}`);
+          emb.setAttribute('width', '1000px');
+          emb.setAttribute('height', '700px');
+          emb.setAttribute('class', 'pt-5');
+          emb.setAttribute('id', 'pdf');
+
+          elementos?.appendChild(emb);
+        }
       },
       err => console.log(err)
     );

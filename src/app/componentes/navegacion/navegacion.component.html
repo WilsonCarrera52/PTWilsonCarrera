@@ -1,29 +1,29 @@
 <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container">
         <div class="container-fluid">
-            <a class="navbar-brand" routerLink="/registro">CVAuth</a>
+            <a class="navbar-brand" routerLink="/login" style="color:white">CVAuth</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><i class="fa-solid fa-bars" style="color: white;"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Tareas</a>
+                        <a class="nav-link" routerLink="/perfil" routerLinkActive="active" style="color:white">Tareas</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <ng-container *ngIf="!autenticacion.sesionIniciada(); else noIniciada">
+                    <ng-container *ngIf="!autenticacion.sesionIniciada(); else Iniciada">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro</a>
+                            <a class="nav-link" routerLink="/registro" routerLinkActive="active" style="color:white">Registro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                            <a class="nav-link" routerLink="/login" routerLinkActive="active" style="color:white">Login</a>
                         </li>
                     </ng-container>
-                    <ng-template #noIniciada>
+                    <ng-template #Iniciada>
                         <li class="nav-item">
-                            <a class="nav-link" style="cursor: pointer" (click)="autenticacion.cerrarSesion()">Cerrar Sesión</a>
+                            <a class="nav-link" style="cursor: pointer;color:white" (click)="autenticacion.cerrarSesion()">Cerrar Sesión</a>
                         </li>
                     </ng-template>
                 </ul>
